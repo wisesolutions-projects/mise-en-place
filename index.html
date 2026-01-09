@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise en Place - Indústria de Beneficiamento de Alimentos</title>
+    <meta name="description" content="Mise en Place - Indústria de beneficiamento de alimentos focada em qualidade, eficiência e sustentabilidade. Transformamos matéria-prima em soluções prontas para o seu negócio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde-principal: #009246;
+            --verde-escuro: #006B33;
+            --verde-claro: #E8F5E9;
+            --verde-medio: #4CAF50;
+            --verde-lima: #8BC34A;
+            --vermelho: #CE2B37;
+            --vermelho-escuro: #A12028;
+            --branco: #FFFFFF;
+            --cinza-claro: #F8F9FA;
+            --cinza-medio: #6C757D;
+            --cinza-texto: #2D3436;
+            --dourado: #D4AF37;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+            color: var(--cinza-texto);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== MAIN CONTAINER ==================== */
+        .infographic {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--branco);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            background: linear-gradient(145deg, var(--verde-principal) 0%, var(--verde-escuro) 100%);
+            padding: 50px 50px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: -5px;
+            transition: transform var(--transition-normal);
+        }
+
+        .logo-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .logo-icon img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
+            transition: filter var(--transition-normal);
+        }
+
+        .logo-icon:hover img {
+            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.4));
+        }
+
+        .logo-text-section {
+            text-align: center;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 90px;
+            font-weight: 800;
+            color: var(--branco);
+            line-height: 0.95;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: text-shadow var(--transition-normal);
+        }
+
+        .logo-text:hover {
+            text-shadow: 0 6px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo-text .word-mise { display: inline; }
+        .logo-text .word-en {
+            font-size: 60px;
+            font-weight: 400;
+            margin: 0 12px;
+            opacity: 0.9;
+        }
+        .logo-text .word-place { display: inline; }
+
+        .slogan {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 12px;
+            font-weight: 500;
+            transition: transform var(--transition-normal);
+        }
+
+        .slogan:hover {
+            transform: scale(1.05);
+        }
+
+        .header-subtitle {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin-top: 30px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all var(--transition-normal);
+        }
+
+        .header-subtitle:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header-subtitle p {
+            font-size: 17px;
+            color: var(--branco);
+            font-weight: 400;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .header-subtitle strong {
+            font-weight: 700;
+            color: var(--branco);
+        }
+
+        /* ==================== VEGETABLES BANNER ==================== */
+        .vegetables-banner {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(180deg, var(--verde-claro) 0%, #c8e6c9 100%);
+            border-bottom: 5px solid var(--verde-principal);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .vegetables-banner::before {
+            content: '🥬 🥕 🍅 🥦 🌽 🥒 🫑 🧅';
+            font-size: 40px;
+            letter-spacing: 20px;
+            opacity: 0.5;
+            animation: shimmer 10s linear infinite;
+        }
+
+        /* ==================== MAIN MESSAGE ==================== */
+        .main-message {
+            padding: 45px 50px;
+            background: linear-gradient(180deg, var(--branco) 0%, var(--cinza-claro) 100%);
+            text-align: center;
+        }
+
+        .main-message-box {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .main-message-box::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--verde-principal), var(--vermelho));
+            border-radius: 2px;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .main-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .main-message p {
+            font-size: 18px;
+            color: var(--cinza-medio);
+            line-height: 1.8;
+        }
+
+        .main-message strong {
+            color: var(--verde-principal);
+            font-weight: 600;
+        }
+
+        /* ==================== SECTION STYLES ==================== */
+        .section {
+            padding: 45px 50px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--verde-principal), var(--verde-escuro));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,146,70,0.3);
+            transition: all var(--transition-normal);
+        }
+
+        .section-icon:hover {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,146,70,0.4);
+        }
+
+        .section-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--branco);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--vermelho);
+            border-radius: 2px;
+            transition: width var(--transition-normal);
+        }
+
+        .section-header:hover .section-title::after {
+            width: 100px;
+        }
+
+        .section-title.centered {
+            text-align: center;
+        }
+
+        .section-title.centered::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ==================== O QUE FAZEMOS ==================== */
+        .services-section {
+            background: var(--verde-claro);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--branco);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 8px 30px rgba(0,146,70,0.08);
+            transition: all var(--transition-normal);
+            border-left: 5px solid var(--verde-principal);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--verde-claro) 0%, transparent 70%);
+            border-radius: 0 0 0 80px;
+            transition: all var(--transition-normal);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,146,70,0.2);
+        }
+
+        .service-card:hover::before {
+            width: 120px;
+            height: 120px;
+        }
+
+        .service-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card h4 .emoji {
+            font-size: 24px;
+            transition: transform var(--transition-normal);
+        }
+
+        .service-card:hover h4 .emoji {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--cinza-medio);
+            line-height: 1.6;
+        }
+
+        .service-card.highlight {
+            border-left-color: var(--vermelho);
+            background: linear-gradient(135deg, var(--branco) 0%, #FFF8F8 100%);
+        }
+
+        .service-card.highlight::before {
+            background: linear-gradient(135deg, #FFE8E8 0%, transparent 70%);
+        }
+
+        /* ==================== PRODUCT SHOWCASE ==================== */
+        .product-showcase {
+            padding: 50px;
+            background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e9 100%);
+        }
+
+        .showcase-container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            flex: 0 0 280px;
+            transition: transform var(--transition-normal);
+        }
+
+        .showcase-image:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,146,70,0.2);
+            transition: box-shadow var(--transition-normal);
+        }
+
+        .showcase-image:hover img {
+            box-shadow: 0 30px 70px rgba(0,146,70,0.3);
+        }
+
+        .showcase-content {
+            flex: 1;
+        }
+
+        .showcase-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 15px;
+        }
+
+        .showcase-content p {
+            font-size: 16px;
+            color: var(--cinza-texto);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .showcase-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .benefit-tag {
+            background: var(--verde-principal);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .benefit-tag:hover {
+            background: var(--verde-escuro);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,146,70,0.3);
+        }
+
+        /* ==================== NÚMEROS DE IMPACTO ==================== */
+        .stats-section {
+            background: linear-gradient(145deg, var(--verde-principal) 0%, var(--verde-escuro) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .stats-section .section-header {
+            justify-content: center;
+        }
+
+        .stats-section .section-icon {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .stats-section .section-title {
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .stats-section .section-title::after {
+            background: var(--dourado);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 35px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--branco);
+            line-height: 1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: transform var(--transition-normal);
+        }
+
+        .stat-card:hover .stat-number {
+            transform: scale(1.1);
+        }
+
+        .stat-number span {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .stat-card.accent {
+            background: var(--vermelho);
+            border-color: var(--vermelho);
+            box-shadow: 0 10px 30px rgba(206,43,55,0.4);
+        }
+
+        .stat-card.accent:hover {
+            box-shadow: 0 20px 50px rgba(206,43,55,0.5);
+        }
+
+        .stats-secondary {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+            padding: 25px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 16px;
+        }
+
+        .stats-secondary-item {
+            text-align: center;
+            transition: transform var(--transition-normal);
+        }
+
+        .stats-secondary-item:hover {
+            transform: scale(1.1);
+        }
+
+        .stats-secondary-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--dourado);
+        }
+
+        .stats-secondary-item .label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.85);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* ==================== SOLUTIONS GRID ==================== */
+        .solutions-section {
+            padding: 50px;
+            background: var(--branco);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .solution-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .solution-card-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .solution-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .solution-card:hover .solution-card-image img {
+            transform: scale(1.1);
+        }
+
+        .solution-card-content {
+            padding: 25px;
+        }
+
+        .solution-card-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 12px;
+        }
+
+        .solution-card-content p {
+            font-size: 14px;
+            color: var(--cinza-medio);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .solution-stats {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .solution-stat {
+            text-align: center;
+            transition: transform var(--transition-normal);
+        }
+
+        .solution-stat:hover {
+            transform: scale(1.1);
+        }
+
+        .solution-stat .number {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--verde-principal);
+        }
+
+        .solution-stat .label {
+            font-size: 11px;
+            color: var(--cinza-medio);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================== DIFERENCIAIS ==================== */
+        .diferenciais-section {
+            background: var(--branco);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .diferencial-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 22px;
+            background: var(--cinza-claro);
+            border-radius: 14px;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .diferencial-item:hover {
+            background: var(--verde-claro);
+            border-color: var(--verde-principal);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,146,70,0.15);
+        }
+
+        .diferencial-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--verde-principal), var(--verde-escuro));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,146,70,0.25);
+            transition: all var(--transition-normal);
+        }
+
+        .diferencial-item:hover .diferencial-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .diferencial-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: var(--branco);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .diferencial-text h5 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 5px;
+        }
+
+        .diferencial-text p {
+            font-size: 13px;
+            color: var(--cinza-medio);
+            line-height: 1.5;
+        }
+
+        .diferenciais-summary {
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: linear-gradient(135deg, var(--verde-claro) 0%, #C8E6C9 100%);
+            border-radius: 16px;
+            text-align: center;
+            border-left: 5px solid var(--verde-principal);
+            transition: all var(--transition-normal);
+        }
+
+        .diferenciais-summary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,146,70,0.2);
+        }
+
+        .diferenciais-summary p {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--verde-escuro);
+            line-height: 1.6;
+        }
+
+        .diferenciais-summary .highlight {
+            color: var(--vermelho);
+            font-weight: 700;
+        }
+
+        /* ==================== PILARES ==================== */
+        .pilares-section {
+            background: linear-gradient(180deg, var(--cinza-claro) 0%, var(--branco) 100%);
+        }
+
+        .pilares-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .pilar {
+            flex: 1;
+            text-align: center;
+            padding: 30px 15px 25px;
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .pilar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .pilar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--verde-principal);
+            transition: height var(--transition-normal);
+        }
+
+        .pilar:hover::before {
+            height: 8px;
+        }
+
+        .pilar:nth-child(3)::before {
+            background: var(--vermelho);
+        }
+
+        .pilar:nth-child(5)::before {
+            background: var(--dourado);
+        }
+
+        .pilar-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 18px;
+            background: var(--verde-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .pilar:hover .pilar-icon {
+            background: var(--verde-principal);
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .pilar:hover .pilar-icon svg {
+            fill: var(--branco);
+        }
+
+        .pilar-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--verde-principal);
+            transition: all var(--transition-normal);
+        }
+
+        .pilar h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 8px;
+        }
+
+        .pilar p {
+            font-size: 11px;
+            color: var(--cinza-medio);
+            line-height: 1.5;
+        }
+
+        /* ==================== SEGMENTS SECTION ==================== */
+        .segments-section {
+            padding: 50px;
+            background: linear-gradient(180deg, var(--verde-escuro) 0%, #004d25 100%);
+        }
+
+        .segments-section .section-title {
+            color: var(--branco);
+        }
+
+        .segments-section .section-icon {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .segments-section .section-icon svg {
+            fill: var(--branco);
+        }
+
+        .segments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .segment-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .segment-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .segment-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+            transition: all var(--transition-normal);
+        }
+
+        .segment-card:hover .segment-icon {
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .segment-card h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--branco);
+            margin-bottom: 8px;
+        }
+
+        .segment-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        /* ==================== PROBLEMA ==================== */
+        .problema-section {
+            background: var(--cinza-claro);
+        }
+
+        .problema-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .problema-list-container {
+            background: var(--branco);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .problema-list-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--cinza-texto);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--cinza-claro);
+        }
+
+        .problema-list {
+            list-style: none;
+        }
+
+        .problema-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--cinza-claro);
+            font-size: 14px;
+            color: var(--cinza-texto);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .problema-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problema-list li:hover {
+            padding-left: 15px;
+            background: var(--cinza-claro);
+            margin: 0 -15px;
+            padding-right: 15px;
+            border-radius: 8px;
+        }
+
+        .problema-list li .check {
+            width: 26px;
+            height: 26px;
+            background: var(--vermelho);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(206,43,55,0.3);
+            transition: transform var(--transition-normal);
+        }
+
+        .problema-list li:hover .check {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .problema-message {
+            background: linear-gradient(145deg, var(--verde-principal) 0%, var(--verde-escuro) 100%);
+            padding: 35px;
+            border-radius: 20px;
+            color: var(--branco);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .problema-message:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,146,70,0.3);
+        }
+
+        .problema-message::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 100px;
+            font-family: 'Playfair Display', serif;
+            color: rgba(255,255,255,0.1);
+            line-height: 1;
+        }
+
+        .problema-message p {
+            font-size: 17px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .problema-message strong {
+            color: var(--dourado);
+            font-weight: 700;
+        }
+
+        /* ==================== FLUXOGRAMA ==================== */
+        .fluxo-section {
+            background: var(--branco);
+            padding: 45px 30px;
+        }
+
+        .fluxo-section .section-header {
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .fluxo-section .section-title {
+            text-align: center;
+        }
+
+        .fluxo-section .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .fluxo-image-container {
+            background: var(--cinza-claro);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.05);
+            transition: all var(--transition-normal);
+        }
+
+        .fluxo-image-container:hover {
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.08), 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .fluxo-image {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            transition: transform var(--transition-normal);
+        }
+
+        .fluxo-image-container:hover .fluxo-image {
+            transform: scale(1.02);
+        }
+
+        .fluxo-caption {
+            text-align: center;
+            margin-top: 25px;
+            padding: 22px 30px;
+            background: linear-gradient(135deg, var(--verde-claro) 0%, #C8E6C9 100%);
+            border-radius: 14px;
+            border-left: 5px solid var(--verde-principal);
+        }
+
+        .fluxo-caption p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 22px;
+            color: var(--verde-escuro);
+            font-weight: 600;
+        }
+
+        /* ==================== KITCHEN SHOWCASE ==================== */
+        .kitchen-showcase {
+            padding: 50px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kitchen-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .kitchen-image {
+            flex: 0 0 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            transition: all var(--transition-normal);
+        }
+
+        .kitchen-image:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 35px 80px rgba(0,0,0,0.5);
+        }
+
+        .kitchen-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform var(--transition-slow);
+        }
+
+        .kitchen-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .kitchen-text {
+            flex: 1;
+            color: white;
+        }
+
+        .kitchen-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+
+        .kitchen-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 25px;
+        }
+
+        .kitchen-benefits-list {
+            list-style: none;
+        }
+
+        .kitchen-benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .kitchen-benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .kitchen-benefits-list li:hover {
+            padding-left: 10px;
+            background: rgba(255,255,255,0.05);
+            margin: 0 -10px;
+            padding-right: 10px;
+            border-radius: 8px;
+        }
+
+        .kitchen-benefits-list .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--verde-principal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            transition: all var(--transition-normal);
+        }
+
+        .kitchen-benefits-list li:hover .icon {
+            transform: scale(1.2) rotate(10deg);
+            background: var(--verde-medio);
+        }
+
+        /* ==================== MERCADO ==================== */
+        .mercado-section {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--branco);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mercado-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,146,70,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .mercado-section .section-header {
+            justify-content: center;
+        }
+
+        .mercado-section .section-icon {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .mercado-section .section-title {
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .mercado-section .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--verde-medio);
+        }
+
+        .mercado-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mercado-card {
+            padding: 35px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .mercado-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .mercado-card .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--verde-medio);
+            margin-bottom: 12px;
+            text-shadow: 0 4px 20px rgba(76,175,80,0.3);
+            transition: transform var(--transition-normal);
+        }
+
+        .mercado-card:hover .number {
+            transform: scale(1.1);
+        }
+
+        .mercado-card .number.accent {
+            color: var(--vermelho);
+            text-shadow: 0 4px 20px rgba(206,43,55,0.3);
+        }
+
+        .mercado-card .label {
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+        }
+
+        .mercado-card .label strong {
+            color: var(--branco);
+            font-weight: 600;
+        }
+
+        .mercado-footer {
+            margin-top: 25px;
+            padding: 22px 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mercado-footer p {
+            color: rgba(255,255,255,0.9);
+            font-size: 15px;
+        }
+
+        .mercado-footer strong {
+            color: var(--verde-medio);
+            font-weight: 600;
+        }
+
+        /* ==================== DIVIDERS ==================== */
+        .divider {
+            height: 6px;
+            background: linear-gradient(90deg, var(--verde-principal), var(--vermelho), var(--verde-principal));
+        }
+
+        .divider-thin {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--verde-principal), transparent);
+            margin: 0 50px;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: linear-gradient(145deg, var(--verde-principal) 0%, var(--verde-escuro) 100%);
+            padding: 55px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-message {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--branco);
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .footer-message .gold {
+            color: var(--dourado);
+        }
+
+        .footer-highlight {
+            display: inline-block;
+            padding: 16px 35px;
+            background: var(--vermelho);
+            border-radius: 50px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 25px rgba(206,43,55,0.4);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .footer-highlight:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(206,43,55,0.5);
+        }
+
+        .footer-highlight p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: var(--branco);
+            font-weight: 600;
+        }
+
+        .footer-brand {
+            margin-top: 10px;
+        }
+
+        .footer-brand .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--branco);
+            margin-bottom: 8px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .footer-brand .location {
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 1px;
+        }
+
+        .footer-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .footer-decoration span {
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transition: all var(--transition-normal);
+        }
+
+        .footer-decoration span:nth-child(2) {
+            background: var(--dourado);
+            width: 12px;
+            height: 12px;
+        }
+
+        .footer:hover .footer-decoration span {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .footer:hover .footer-decoration span:nth-child(1) { animation-delay: 0s; }
+        .footer:hover .footer-decoration span:nth-child(2) { animation-delay: 0.2s; }
+        .footer:hover .footer-decoration span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 960px) {
+            body {
+                padding: 10px;
+            }
+
+            .infographic {
+                width: 100%;
+            }
+
+            .logo-text {
+                font-size: 60px;
+            }
+
+            .logo-text .word-en {
+                font-size: 40px;
+            }
+
+            .services-grid,
+            .diferenciais-grid,
+            .solutions-grid,
+            .mercado-grid,
+            .problema-container {
+                grid-template-columns: 1fr;
+            }
+
+            .segments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pilares-container {
+                flex-wrap: wrap;
+            }
+
+            .pilar {
+                flex: 0 0 calc(50% - 10px);
+            }
+
+            .showcase-container,
+            .kitchen-content {
+                flex-direction: column;
+            }
+
+            .showcase-image,
+            .kitchen-image {
+                flex: none;
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-secondary {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 30px 20px;
+            }
+
+            .header {
+                padding: 30px 20px 20px;
+            }
+
+            .logo-text {
+                font-size: 42px;
+            }
+
+            .logo-text .word-en {
+                font-size: 28px;
+                margin: 0 6px;
+            }
+
+            .logo-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .logo-icon img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .slogan {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .segments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pilar {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic" id="infographic">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <img src="assets/images/logo-icon-transparent.png" alt="Mise en Place Logo">
+                    </div>
+                    <div class="logo-text-section">
+                        <div class="logo-text">
+                            <span class="word-mise">mise</span>
+                            <span class="word-en">en</span>
+                            <span class="word-place">place</span>
+                        </div>
+                        <div class="slogan">preparado para voce</div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-subtitle">
+                <p><strong>Industria de beneficiamento de alimentos</strong> focada em qualidade, eficiencia e sustentabilidade. Transformamos materia-prima em solucoes prontas para o seu negocio.</p>
+            </div>
+        </header>
+
+        <!-- VEGETABLES BANNER -->
+        <div class="vegetables-banner"></div>
+
+        <!-- MAIN MESSAGE -->
+        <section class="main-message animate-on-scroll">
+            <div class="main-message-box">
+                <h2>Transformamos alimentos em solucoes prontas</h2>
+                <p>Seguras e eficientes para quem precisa <strong>produzir em escala</strong>. Da fazenda a sua cozinha profissional, cuidamos de todo o processo.</p>
+            </div>
+        </section>
+
+        <div class="divider-thin"></div>
+
+        <!-- O QUE FAZEMOS -->
+        <section class="section services-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                </div>
+                <h2 class="section-title">O Que Fazemos</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <h4><span class="emoji">🥬</span> Beneficiamento de FLV</h4>
+                    <p>Frutas, legumes e verduras frescos, selecionados e preparados para distribuicao imediata com maxima qualidade.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <h4><span class="emoji">⚙️</span> Processamento Industrial</h4>
+                    <p>Alimentos cortados, higienizados e prontos para uso em cozinhas profissionais de alta demanda.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <h4><span class="emoji">📦</span> Cestas Basicas & Kits</h4>
+                    <p>Montagem personalizada de cestas basicas e kits lanche para empresas e instituicoes.</p>
+                </div>
+                <div class="service-card highlight animate-on-scroll">
+                    <h4><span class="emoji">🏭</span> Terceirizacao de Producao</h4>
+                    <p>Solucao completa para food service, hospitais, escolas, presidios e grandes redes varejistas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT SHOWCASE - PROCESSADOS -->
+        <section class="product-showcase animate-on-scroll">
+            <div class="showcase-container">
+                <div class="showcase-image">
+                    <img src="assets/images/mockup-processados.png" alt="Vegetais Processados Mise en Place">
+                </div>
+                <div class="showcase-content">
+                    <h3>Vegetais Processados Prontos para Uso</h3>
+                    <p>Nossos vegetais chegam a sua cozinha <strong>lavados, higienizados, cortados e embalados</strong> de acordo com a sua necessidade. Cada produto passa por rigoroso controle de qualidade, garantindo frescor, seguranca alimentar e padronizacao em todas as entregas.</p>
+                    <p>Reduza em ate <strong>70% o tempo de preparo</strong> na sua cozinha e elimine desperdicios com porcoes ja dimensionadas para o seu volume de producao.</p>
+                    <div class="showcase-benefits">
+                        <span class="benefit-tag">Higienizado</span>
+                        <span class="benefit-tag">Porcionado</span>
+                        <span class="benefit-tag">Rastreavel</span>
+                        <span class="benefit-tag">Pronto para Uso</span>
+                        <span class="benefit-tag">Embalagem a Vacuo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUMEROS DE IMPACTO -->
+        <section class="section stats-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                </div>
+                <h2 class="section-title">Numeros que Impressionam</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">10<span>ton</span></div>
+                    <div class="stat-label">Capacidade Diaria</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">700<span>m2</span></div>
+                    <div class="stat-label">Area Operacional</div>
+                </div>
+                <div class="stat-card accent animate-on-scroll">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">Anos de Experiencia</div>
+                </div>
+            </div>
+            <div class="stats-secondary animate-on-scroll">
+                <div class="stats-secondary-item">
+                    <div class="number">+40%</div>
+                    <div class="label">Mais capacidade que concorrentes</div>
+                </div>
+                <div class="stats-secondary-item">
+                    <div class="number">4km</div>
+                    <div class="label">De distancia do CEASA</div>
+                </div>
+                <div class="stats-secondary-item">
+                    <div class="number">100%</div>
+                    <div class="label">Linha automatizada</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUCOES PARA CADA NECESSIDADE -->
+        <section class="section solutions-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" fill="white"/></svg>
+                </div>
+                <h2 class="section-title">Solucoes para Cada Necessidade</h2>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card animate-on-scroll">
+                    <div class="solution-card-image">
+                        <img src="assets/images/mockup-cesta-basica.png" alt="Cesta Basica Mise en Place">
+                    </div>
+                    <div class="solution-card-content">
+                        <h4>Cestas Basicas Corporativas</h4>
+                        <p>Montagem personalizada de cestas com produtos de qualidade selecionados. Ideal para programas de beneficios corporativos, datas comemorativas e acoes sociais.</p>
+                        <div class="solution-stats">
+                            <div class="solution-stat">
+                                <div class="number">+50</div>
+                                <div class="label">Itens disponiveis</div>
+                            </div>
+                            <div class="solution-stat">
+                                <div class="number">100%</div>
+                                <div class="label">Personalizavel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-card animate-on-scroll">
+                    <div class="solution-card-image">
+                        <img src="assets/images/mockup-kit-lanche.png" alt="Kit Lanche Mise en Place">
+                    </div>
+                    <div class="solution-card-content">
+                        <h4>Kits Lanche Institucionais</h4>
+                        <p>Solucao completa para alimentacao escolar, eventos corporativos e programas sociais. Kits balanceados, praticos e seguros.</p>
+                        <div class="solution-stats">
+                            <div class="solution-stat">
+                                <div class="number">1000+</div>
+                                <div class="label">Kits/dia</div>
+                            </div>
+                            <div class="solution-stat">
+                                <div class="number">PNAE</div>
+                                <div class="label">Conformidade</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section class="section diferenciais-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
+                </div>
+                <h2 class="section-title">Por Que Confiar na Mise en Place?</h2>
+            </div>
+            <div class="diferenciais-grid">
+                <div class="diferencial-item animate-on-scroll">
+                    <div class="diferencial-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="diferencial-text">
+                        <h5>Infraestrutura Equipada</h5>
+                        <p>Economia de CAPEX com estrutura ja montada e operacional</p>
+                    </div>
+                </div>
+                <div class="diferencial-item animate-on-scroll">
+                    <div class="diferencial-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="diferencial-text">
+                        <h5>Certificacao Prodfor</h5>
+                        <p>Conformidade total com normas de seguranca alimentar</p>
+                    </div>
+                </div>
+                <div class="diferencial-item animate-on-scroll">
+                    <div class="diferencial-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <div class="diferencial-text">
+                        <h5>Carteira Consolidada</h5>
+                        <p>13 anos de relacionamento com fornecedores e clientes</p>
+                    </div>
+                </div>
+                <div class="diferencial-item animate-on-scroll">
+                    <div class="diferencial-icon">
+                        <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div class="diferencial-text">
+                        <h5>Demanda Reprimida</h5>
+                        <p>Mercado aquecido com concorrentes sem capacidade</p>
+                    </div>
+                </div>
+            </div>
+            <div class="diferenciais-summary animate-on-scroll">
+                <p><strong>Mais estrutura, mais experiencia, mais capacidade.</strong><br><span class="highlight">Menos risco para o cliente.</span></p>
+            </div>
+        </section>
+
+        <!-- SEGMENTOS ATENDIDOS -->
+        <section class="section segments-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="white"/></svg>
+                </div>
+                <h2 class="section-title">Segmentos que Atendemos</h2>
+            </div>
+            <div class="segments-grid">
+                <div class="segment-card animate-on-scroll">
+                    <div class="segment-icon">🏥</div>
+                    <h5>Hospitais e Clinicas</h5>
+                    <p>Refeicoes padronizadas com controle nutricional rigoroso e rastreabilidade total.</p>
+                </div>
+                <div class="segment-card animate-on-scroll">
+                    <div class="segment-icon">🏫</div>
+                    <h5>Escolas e Creches</h5>
+                    <p>Alimentacao escolar segura e nutritiva, em conformidade com PNAE.</p>
+                </div>
+                <div class="segment-card animate-on-scroll">
+                    <div class="segment-icon">🏢</div>
+                    <h5>Restaurantes Corporativos</h5>
+                    <p>Insumos prontos para grandes volumes de refeicoes diarias.</p>
+                </div>
+                <div class="segment-card animate-on-scroll">
+                    <div class="segment-icon">🏪</div>
+                    <h5>Redes de Varejo</h5>
+                    <p>Produtos processados e embalados para venda direta ao consumidor.</p>
+                </div>
+                <div class="segment-card animate-on-scroll">
+                    <div class="segment-icon">🏛️</div>
+                    <h5>Orgaos Publicos</h5>
+                    <p>Contratos PPP para alimentacao em presidios e programas sociais.</p>
+                </div>
+                <div class="segment-card animate-on-scroll">
+                    <div class="segment-icon">🍳</div>
+                    <h5>Food Service</h5>
+                    <p>Hoteis, buffets e restaurantes que precisam de eficiencia constante.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLUXOGRAMA -->
+        <section class="section fluxo-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 017 7h2m6 10h2a5 5 0 000-10h-2m-7 5h8"/></svg>
+                </div>
+                <h2 class="section-title centered">Nosso Processo Produtivo</h2>
+            </div>
+            <div class="fluxo-image-container animate-on-scroll">
+                <img src="assets/images/processo-produtivo.png" alt="Fluxograma de Producao" class="fluxo-image">
+            </div>
+            <div class="fluxo-caption animate-on-scroll">
+                <p>Da inspecao a entrega, tudo e controlado, rastreavel e eficiente.</p>
+            </div>
+        </section>
+
+        <!-- KITCHEN SHOWCASE -->
+        <section class="kitchen-showcase">
+            <div class="kitchen-content">
+                <div class="kitchen-image animate-on-scroll">
+                    <img src="assets/images/mockup-cozinha.png" alt="Cozinha Profissional usando Mise en Place">
+                </div>
+                <div class="kitchen-text">
+                    <h3 class="animate-on-scroll">Na Sua Cozinha Profissional</h3>
+                    <p class="animate-on-scroll">Imagine sua equipe focada no que realmente importa: <strong>criar pratos excepcionais</strong>. Enquanto isso, a Mise en Place cuida de todo o preparo previo com a mesma qualidade e padronizacao que voce exigiria.</p>
+                    <ul class="kitchen-benefits-list">
+                        <li class="animate-on-scroll">
+                            <span class="icon">⏱️</span>
+                            <span><strong>Reducao de 70%</strong> no tempo de preparo dos ingredientes</span>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <span class="icon">💰</span>
+                            <span><strong>Economia de 40%</strong> em custos com mao de obra na cozinha</span>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <span class="icon">🎯</span>
+                            <span><strong>100% padronizacao</strong> em cortes, porcoes e apresentacao</span>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <span class="icon">🛡️</span>
+                            <span><strong>Zero riscos</strong> de acidentes com facas e equipamentos</span>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <span class="icon">📋</span>
+                            <span><strong>Rastreabilidade completa</strong> do campo ate o prato</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MERCADO -->
+        <section class="section mercado-section">
+            <div class="section-header animate-on-scroll">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h2 class="section-title">Mercado & Oportunidade</h2>
+            </div>
+            <div class="mercado-grid">
+                <div class="mercado-card animate-on-scroll">
+                    <div class="number">+12%</div>
+                    <div class="label">Crescimento anual do<br><strong>Food Service no Brasil</strong></div>
+                </div>
+                <div class="mercado-card animate-on-scroll">
+                    <div class="number accent">R$ 45bi</div>
+                    <div class="label">Potencial de faturamento<br><strong>ate 2026</strong></div>
+                </div>
+            </div>
+            <div class="mercado-footer animate-on-scroll">
+                <p>Demanda crescente por <strong>terceirizacao</strong>, <strong>processos seguros</strong> e <strong>rastreabilidade</strong></p>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-message animate-on-scroll">
+                    A <strong>Mise en Place</strong> e mais do que uma industria de alimentos.<br>
+                    E uma <span class="gold">parceira estrategica</span> para quem precisa de eficiencia, seguranca e escala.
+                </p>
+                <div class="footer-highlight animate-on-scroll">
+                    <p>preparado para voce</p>
+                </div>
+                <div class="footer-brand animate-on-scroll">
+                    <p class="name">mise en place</p>
+                    <p class="location">Cariacica/ES - Proximo ao CEASA - BR-101 e BR-262</p>
+                </div>
+                <div class="footer-decoration">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delay
+        document.querySelectorAll('.services-grid .service-card, .segments-grid .segment-card, .diferenciais-grid .diferencial-item').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
